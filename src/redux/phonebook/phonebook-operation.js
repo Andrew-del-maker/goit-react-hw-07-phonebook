@@ -5,14 +5,8 @@ import * as actions from './phonebook-action'
 axios.defaults.baseURL = 'http://localhost:4040'
 
 
-export const fetchContacts = () => async dispatch => {
-    dispatch(actions.fetchContactRequest());
-    try {
-        const { data } = await axios.get('/contacts');
-        dispatch(actions.fetchContactSuccess(data));
-    } catch (error) {
-        dispatch(actions.fetchContactError(error));
-    }
+export const fetchContacts = () => dispatch => {
+    axios.get('/contacts').then(({ data }) => dispatch(actions.fetchContactSuccess(data))).catch(error=>actions.addContactError(error))
 }
 
 export const addContact = (name, number) => dispatch => {

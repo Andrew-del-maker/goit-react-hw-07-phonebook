@@ -8,9 +8,7 @@ const ContactList = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    fetchContacts()
-  });
+ useEffect(() => {dispatch(fetchContacts())}, [dispatch])
 
   
   const getVisibleContacts = (filter, contacts) => {
