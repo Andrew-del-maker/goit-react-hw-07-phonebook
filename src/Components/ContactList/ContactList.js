@@ -1,11 +1,16 @@
 import { useSelector, useDispatch } from 'react-redux';
-import {deleteContact} from '../../redux/phonebook/phonebook-operation'
+import { deleteContact, fetchContacts } from '../../redux/phonebook/phonebook-operation';
+import {useEffect} from 'react'
 
 const ContactList = () => {
   const filter = useSelector(state => state.contacts.filter);
   const contacts = useSelector(state => state.contacts.contacts);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchContacts()
+  });
 
   
   const getVisibleContacts = (filter, contacts) => {
