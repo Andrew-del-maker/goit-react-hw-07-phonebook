@@ -16,15 +16,15 @@ const filter = createReducer('', {
 } )
 
 const loading = createReducer(false, {
-    [addContactRequest]: true,
-    [addContactSuccess]: false,
-    [addContactError]: false,
-    [deleteContactRequest]: true,
-    [deleteContactSuccess]: false,
-    [deleteContactError]: false,
-    [fetchContactRequest]: true,
-    [fetchContactSuccess]: false,
-    [fetchContactError]: false
+    [addContactRequest]: ()=>true,
+    [addContactSuccess]: ()=>false,
+    [addContactError]: ()=>false,
+    [deleteContactRequest]: ()=>true,
+    [deleteContactSuccess]: ()=>false,
+    [deleteContactError]: ()=>false,
+    [fetchContactRequest]: ()=>true,
+    [fetchContactSuccess]: ()=>false,
+    [fetchContactError]: ()=>false
 })
 
 export default combineReducers({
